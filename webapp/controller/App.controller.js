@@ -3,9 +3,9 @@ sap.ui.define([
 	"sap/base/Log",
 	"../model/formatter",
 	"sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator"
-
-], function (Controller, Log, formatter, Filter, FilterOperator) {
+	"sap/ui/model/FilterOperator",
+	"sap/ui/core/UIComponent"
+], function (Controller, Log, formatter, Filter, FilterOperator, UIComponent) {
 	"use strict";
 	return Controller.extend("openui5.movies.controller.App", {
 		formatter: formatter,
@@ -47,6 +47,16 @@ sap.ui.define([
 			aRows.forEach(function (oItem) {
 				var oAppointmentsBinding = oItem.getBinding("appointments");
 				oAppointmentsBinding.filter(oFilterCity);
+			});
+		},
+		onAppointmentSelect: function (oAppointment) {
+			var oContext = oAppointment.getBindingContext("movies"),
+				sPath = oContext.getPath();
+
+			var aParameters = sPath.split("/");
+			UIComponent.getRouterFor(this).navTo("Detail", {
+				movieId: aParameters[2],
+				appointmentId: aParameters[4]
 			});
 		}
 	});
