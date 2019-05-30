@@ -1,11 +1,11 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"openui5/movies/model/models"
+	"opensap/movies/model/models"
 ], function (UIComponent, Device, models) {
 	"use strict";
 
-	return UIComponent.extend("openui5.movies.Component", {
+	return UIComponent.extend("opensap.movies.Component", {
 
 		metadata: {
 			manifest: "json"
