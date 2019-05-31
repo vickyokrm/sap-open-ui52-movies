@@ -12,7 +12,7 @@
 		"resources": "resources.json",
 		"dataSources": {
 			"mainService": {
-				"uri": "/ES5/sap/opu/odata/iwbep/GWSAMPLE_BASIC/",
+				"uri": "http://localhost:8010/proxy",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
@@ -69,6 +69,13 @@
 			},
 			"": {
 				"dataSource": "mainService",
+				"settings": {
+					"headers": {
+						"Authorization": "Basic UDIwMDEzMjIzNDM6UGFzc3dvcmQxMjM0"
+					},
+					"metadataUrlParams": {
+					}
+				},
 				"preload": true
 			}
 		},
